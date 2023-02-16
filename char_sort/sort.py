@@ -42,18 +42,18 @@ def counts_to_str_buffer(
 
 
 @profile
-def sort_file(input: str, output: str, chunk_size: int):
+def sort_file(source_path: str, output_path: str, chunk_size: int):
     """
     Sorts utf-8 file in chunks
-    :param input:
-    :param output:
+    :param source_path:
+    :param output_path:
     :param chunk_size:
     """
-    logging.info(f"Sorting file {input}\n Using chunk_size: {chunk_size}")
+    logging.info(f"Sorting file {source_path}\n Using chunk_size: {chunk_size}")
 
-    with open(input, "r", encoding="utf-8") as f:
+    with open(source_path, "r", encoding="utf-8") as f:
         char_counts = str_buffer_to_counts(f, chunk_size)
 
-    logging.info(f"writing to file {output}")
-    with open(output, "w", encoding="utf-8") as f:
+    logging.info(f"writing to file {output_path}")
+    with open(output_path, "w", encoding="utf-8") as f:
         counts_to_str_buffer(f, char_counts, chunk_size)
