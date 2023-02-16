@@ -4,7 +4,6 @@ import os
 import psutil
 
 
-
 def process_memory():
     """
     Inner psutil function
@@ -12,7 +11,7 @@ def process_memory():
     """
     process = psutil.Process(os.getpid())
     mem_info = process.memory_info()
-    return mem_info.rss/(1048576)
+    return mem_info.rss / (1048576)
 
 
 def profile(func):
@@ -21,6 +20,7 @@ def profile(func):
     :param func:
     :return: decorated function
     """
+
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         mem_after = process_memory()
