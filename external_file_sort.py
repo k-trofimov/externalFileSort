@@ -22,6 +22,5 @@ if __name__ == "__main__":
             output_path = source_path + ".sorted"
     else:
         output_path = args.output
-    os.chdir("/Users/konstantintrofimov/PycharmProjects/externalFileSort")
     logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
     sort_file(source_path, output_path, args.chunk * 1048576)
