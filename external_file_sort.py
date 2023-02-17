@@ -1,6 +1,5 @@
 import argparse
 import logging
-import os
 
 from char_sort.sort import sort_file
 
@@ -9,7 +8,7 @@ if __name__ == "__main__":
     parser.add_argument("source", type=str, help="Path to file to be sorted")
     parser.add_argument("--output", type=str, default=None, help="Path to output file")
     parser.add_argument(
-        "--replace", type=bool, default=False, help="Replace origial file"
+        "--replace", action=argparse.BooleanOptionalAction, help="Replace original file"
     )
     parser.add_argument("--chunk", type=int, default=10, help="Chunk size in mb")
     args = parser.parse_args()
